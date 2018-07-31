@@ -1,5 +1,5 @@
-# DesignPattern
-设计模式23种经典实现
+# DesignPattern 设计模式23种经典实现
+
 ---
 
 ## 简单（静态）工厂模式(Simple Factory Pattern)  
