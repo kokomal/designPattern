@@ -23,13 +23,8 @@ import yuanjun.chen.common.BadPractice;
  */
 public class CacheAsideDemo {
     private static final Logger logger = LogManager.getLogger(CacheAsideDemo.class);
-    private static final String TOP_HANDSOME = "topHandsome";
     public static Map<String, String> cache = new HashMap<String, String>();
     public static Map<String, String> db = new HashMap<String, String>(); // db always have val
-    static {
-        db.put(TOP_HANDSOME, "潘安");
-        cache.put(TOP_HANDSOME, "潘安");
-    }
 
     /**
      * 
