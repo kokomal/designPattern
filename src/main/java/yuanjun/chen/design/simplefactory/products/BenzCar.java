@@ -9,7 +9,7 @@
  */
 package yuanjun.chen.design.simplefactory.products;
 
-import yuanjun.chen.design.simplefactory.CarFactory;
+import yuanjun.chen.design.simplefactory.factory.CarStaticFactory;
 
 /**
  * @ClassName: BenzCar
@@ -21,7 +21,7 @@ public class BenzCar extends Car {
 
     @Override
     String getBrand() {
-        return CarFactory.CarType.BENZ.name();
+        return CarStaticFactory.CarType.BENZ.name();
     }
 
 }

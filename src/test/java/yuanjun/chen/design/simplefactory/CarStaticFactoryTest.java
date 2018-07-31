@@ -12,7 +12,8 @@ package yuanjun.chen.design.simplefactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
-import yuanjun.chen.design.simplefactory.CarFactory.CarType;
+import yuanjun.chen.design.simplefactory.factory.CarStaticFactory;
+import yuanjun.chen.design.simplefactory.factory.CarStaticFactory.CarType;
 import yuanjun.chen.design.simplefactory.products.Car;
 
 /**   
@@ -21,17 +22,17 @@ import yuanjun.chen.design.simplefactory.products.Car;
  * @author: 陈元俊 
  * @date: 2018年7月31日 上午8:30:17  
  */
-public class CarFactoryTest {
-    private static final Logger logger = LogManager.getLogger(CarFactoryTest.class);
+public class CarStaticFactoryTest {
+    private static final Logger logger = LogManager.getLogger(CarStaticFactoryTest.class);
     
     @Test
     public void testCarFactory() {
-        Car x = CarFactory.generateOneCar(CarType.BENZ);
+        Car x = CarStaticFactory.generateOneCar(CarType.BENZ);
         x.drive();
         x.injectGas();
         x.park();
         logger.info("--------------------------------------");
-        Car y = CarFactory.generateOneCar(CarType.TESLA);
+        Car y = CarStaticFactory.generateOneCar(CarType.TESLA);
         y.park();
         y.drive();
         y.injectGas();

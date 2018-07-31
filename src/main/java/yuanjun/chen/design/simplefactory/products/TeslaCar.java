@@ -11,7 +11,7 @@ package yuanjun.chen.design.simplefactory.products;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import yuanjun.chen.design.simplefactory.CarFactory;
+import yuanjun.chen.design.simplefactory.factory.CarStaticFactory;
 
 /**   
  * @ClassName: TeslaCar   
@@ -23,7 +23,7 @@ public class TeslaCar extends Car {
     private static final Logger logger = LogManager.getLogger(TeslaCar.class);
     @Override
     String getBrand() {
-        return CarFactory.CarType.TESLA.name();
+        return CarStaticFactory.CarType.TESLA.name();
     }
     
     @Override

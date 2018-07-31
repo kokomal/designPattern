@@ -7,7 +7,7 @@
  * @version V1.0
  * @Copyright: 2018 All rights reserved.
  */
-package yuanjun.chen.design.simplefactory;
+package yuanjun.chen.design.simplefactory.factory;
 
 import yuanjun.chen.design.simplefactory.products.AudiCar;
 import yuanjun.chen.design.simplefactory.products.BenzCar;
@@ -22,7 +22,7 @@ import yuanjun.chen.design.simplefactory.products.ToyotaCar;
  * @author: 陈元俊
  * @date: 2018年7月30日 下午5:53:55
  */
-public class CarFactory {
+public class CarStaticFactory {
     public enum CarType {
         BMW, BENZ, AUDI, TESLA, TOYOTA;
     }
