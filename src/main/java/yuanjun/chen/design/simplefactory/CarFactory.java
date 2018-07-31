@@ -9,6 +9,13 @@
  */
 package yuanjun.chen.design.simplefactory;
 
+import yuanjun.chen.design.simplefactory.products.AudiCar;
+import yuanjun.chen.design.simplefactory.products.BenzCar;
+import yuanjun.chen.design.simplefactory.products.BmwCar;
+import yuanjun.chen.design.simplefactory.products.Car;
+import yuanjun.chen.design.simplefactory.products.TeslaCar;
+import yuanjun.chen.design.simplefactory.products.ToyotaCar;
+
 /**
  * @ClassName: CarFactory
  * @Description: Car工厂类
@@ -17,7 +24,7 @@ package yuanjun.chen.design.simplefactory;
  */
 public class CarFactory {
     public enum CarType {
-        BMW, BENZ;
+        BMW, BENZ, AUDI, TESLA, TOYOTA;
     }
 
     public static Car generateOneCar(CarType type) {
@@ -26,15 +33,17 @@ public class CarFactory {
                 return new BmwCar();
             case BENZ:
                 return new BenzCar();
+            case AUDI:
+                return new AudiCar();
+            case TESLA:
+                return new TeslaCar();
+            case TOYOTA:
+                return new ToyotaCar();
             default:
                 return new BenzCar();
         }
     }
     
     public static void main(String[] args) {
-        Car x = CarFactory.generateOneCar(CarType.BENZ);
-        x.drive();
-        x.injectGas();
-        x.park();
     }
 }
