@@ -9,20 +9,23 @@
  */
 package yuanjun.chen.concurrent.future;
 
+import yuanjun.chen.concurrent.future.dto.PackageDTO;
+
 /**
  * @ClassName: AsyncDataFetchMachine
  * @Description: 类似于专属parcelDTO的静态工厂
  * @author: 陈元俊
  * @date: 2018年8月1日 上午10:25:06
  */
-public class AsyncDataFetchMachine {
-    public static <T extends ProtoDTO> IGenericFuture<T> fetchAsyncData(String name, Double price, Class<T> clazz) {
-        AsyncFutureData<T> future = new AsyncFutureData<T>();
+public class AsyncPackageFetchMachine {
+    
+    public static <T extends PackageDTO> IGenericFuturePackage<T> fetchAsyncData(String name, Double price, Class<T> clazz) {
+        AsyncFuturePackage<T> future = new AsyncFuturePackage<T>();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    future.sendInData(name, price, clazz); // 另起线程去生成数据
+                    future.sendInPackage(name, price, clazz); // 另起线程去生成数据
                 } catch (Exception e) {
                 }
             }
