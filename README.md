@@ -34,3 +34,9 @@ CacheAside模式是从数据仓库中将数据加载到缓存中，从而提高�
 yuanjun.chen.cache包下涉及CacheAside设计模式  
 yuanjun.chen.cache.CacheAsideTest实现缓存更新的正例和反例的测试对比  
 
+---
+
+# Concurrent 设计模式
+yuanjun.chen.concurrent包下涉及并发编程的一些设计模式  
+Future模式是异步化的经典设计模式，采用jdk经典的wait/notifyAll语法，实现对结果数据获取的"懒加载"  
+FuturePatternTest.java实现其测试,模拟了顺丰快递SF和DHL快递异步获得相应包裹的有趣案例   
