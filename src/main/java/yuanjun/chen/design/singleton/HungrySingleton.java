@@ -26,7 +26,7 @@ public class HungrySingleton {
 		return instance;
 	}
 
-	public int GloballyInc() {
+	public int globallyInc() {
 		return this.count.incrementAndGet();
 	}
 

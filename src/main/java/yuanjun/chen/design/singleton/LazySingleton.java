@@ -20,7 +20,7 @@ public class LazySingleton {
 	}
 	
 	// 注意全局的递增无需任何加锁措施也能保持同步，这是由于单例的获得本身是独占的
-	public int GloballyInc() { 
+	public int globallyInc() { 
 		return this.count.incrementAndGet();
 	}
 

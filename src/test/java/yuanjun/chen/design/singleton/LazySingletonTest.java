@@ -1,13 +1,21 @@
-/**
- * 
+/**  
+ * @Title: LazySingletonTest.java   
+ * @Package: yuanjun.chen.design.singleton   
+ * @Description: 懒汉单例模式 性能测试 
+ * @author: 陈元俊     
+ * @date: 2018年8月1日 下午2:24:06   
+ * @version V1.0 
+ * @Copyright: 2018 All rights reserved. 
  */
 package yuanjun.chen.design.singleton;
 
 import org.junit.Test;
 
-/**
- * @author hp
- *
+/**   
+ * @ClassName: LazySingletonTest   
+ * @Description: 懒汉单例模式 性能测试 
+ * @author: 陈元俊 
+ * @date: 2018年8月1日 下午2:24:06  
  */
 public class LazySingletonTest {
 	@Test
@@ -20,7 +28,7 @@ public class LazySingletonTest {
 				@Override
 				public void run() {
 					for (int j = 0; j < loopPerThread; j++) {
-						LazySingleton.getInstance().GloballyInc();
+						LazySingleton.getInstance().globallyInc();
 					}
 				}
 			});
@@ -42,7 +50,7 @@ public class LazySingletonTest {
 				@Override
 				public void run() {
 					for (int j = 0; j < loopPerThread; j++) {
-						LazySingleton.getInstanceByStaticSync().GloballyInc();
+						LazySingleton.getInstanceByStaticSync().globallyInc();
 					}
 				}
 			});

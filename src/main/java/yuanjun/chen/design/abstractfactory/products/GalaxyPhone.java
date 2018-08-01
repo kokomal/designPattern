@@ -1,7 +1,7 @@
 /**  
  * @Title: GalaxyPhone.java   
  * @Package: yuanjun.chen.design.abstractfactory.products   
- * @Description: TODO(用一句话描述该文件做什么)   
+ * @Description: CellPhone具体产品类  
  * @author: 陈元俊     
  * @date: 2018年7月31日 下午4:01:37   
  * @version V1.0 
@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 /**   
  * @ClassName: GalaxyPhone   
- * @Description: TODO(这里用一句话描述这个类的作用)   
+ * @Description: CellPhone具体产品类  
  * @author: 陈元俊 
  * @date: 2018年7月31日 下午4:01:37  
  */
@@ -25,5 +25,4 @@ public class GalaxyPhone extends CellPhone{
     public void ring() {
         logger.info("Over The Horizon~~~");
     }
-
 }
