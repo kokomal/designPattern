@@ -16,16 +16,17 @@ import java.util.concurrent.Executors;
 
 /**
  * @ClassName: LobsterPlaza
- * @Description: TODO(这里用一句话描述这个类的作用)
+ * @Description: 主调度类
  * @author: 陈元俊
  * @date: 2018年8月2日 下午2:51:57
  */
 public class LobsterPlaza {
     private static BlockingQueue<Lobster> coldChain;
+    private static ExecutorService es;
 
     public static void init(int chainSize, int consumerSize, int producerSize) {
         coldChain = new ArrayBlockingQueue<>(chainSize);
-        ExecutorService es = Executors.newCachedThreadPool();
+        es = Executors.newCachedThreadPool();
         for (int i = 0; i < consumerSize; i++) {
             es.submit(new ConsumerTask(coldChain));
         }
@@ -40,7 +41,7 @@ public class LobsterPlaza {
         }
         System.out.println("finished");
     }
-    
+
     public static void main(String[] args) {
         init(5, 20, 10);
     }
