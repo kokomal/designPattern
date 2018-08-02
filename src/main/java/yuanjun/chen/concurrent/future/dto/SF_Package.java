@@ -10,7 +10,6 @@
 package yuanjun.chen.concurrent.future.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @ClassName: SF_Package
