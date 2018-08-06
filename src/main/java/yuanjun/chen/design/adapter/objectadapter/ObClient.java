@@ -7,9 +7,9 @@
  * @version V1.0 
  * @Copyright: 2018 All rights reserved. 
  */
-package yuanjun.chen.adapter.objectadapter;
+package yuanjun.chen.design.adapter.objectadapter;
 
-import yuanjun.chen.adapter.common.Adaptor;
+import yuanjun.chen.design.adapter.common.Adaptor;
 
 /**   
  * @ClassName: ObClient   

@@ -1,11 +1,11 @@
-/**  
- * @Title: ProducerTask.java   
- * @Package: yuanjun.chen.concurrent.consumerproducer   
- * @Description: TODO(用一句话描述该文件做什么)   
- * @author: 陈元俊     
- * @date: 2018年8月2日 下午2:46:41   
- * @version V1.0 
- * @Copyright: 2018 All rights reserved. 
+/**
+ * @Title: ProducerTask.java
+ * @Package: yuanjun.chen.concurrent.consumerproducer
+ * @Description: 生产者任务，其生成任务并放置到blockingqueue中
+ * @author: 陈元俊
+ * @date: 2018年8月2日 下午2:46:41
+ * @version V1.0
+ * @Copyright: 2018 All rights reserved.
  */
 package yuanjun.chen.concurrent.consumerproducer;
 
@@ -14,13 +14,13 @@ import java.util.UUID;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-/**   
- * @ClassName: ProducerTask   
- * @Description: TODO(这里用一句话描述这个类的作用)   
- * @author: 陈元俊 
- * @date: 2018年8月2日 下午2:46:41  
+/**
+ * @ClassName: ProducerTask
+ * @Description: 生产者任务，其生成任务并放置到blockingqueue中
+ * @author: 陈元俊
+ * @date: 2018年8月2日 下午2:46:41
  */
-public class ProducerTask implements Runnable{
+public class ProducerTask implements Runnable {
     private BlockingQueue<Lobster> coldChain;
 
     public ProducerTask(BlockingQueue<Lobster> coldChain) {
@@ -31,20 +31,25 @@ public class ProducerTask implements Runnable{
     @Override
     public void run() {
         while (true) {
-            Lobster lob = fishermanHarvest();
-            try {
-                Thread.sleep(1000);
-                boolean res = coldChain.offer(lob, 2, TimeUnit.SECONDS);
-                if (res) {
-                    System.out.println("nice, the " + lob + " has been delivered");
-                } else {
+            if (!Lobster.shouldStopHarvesting) {
+                Lobster lob = fishermanHarvest();
+                try {
+                    Thread.sleep(1000);
+                    boolean res = coldChain.offer(lob, 2, TimeUnit.SECONDS);
+                    if (res) {
+                        System.out.println("nice, the " + lob + " has been delivered");
+                    } else {
+                        lob.degenerate(); // awful
+                        System.out.println("shame, the coldchain is full!"); // 需要加上失败重试机制
+                    }
+                } catch (InterruptedException e) {
                     lob.degenerate(); // awful
-                    System.out.println("shame, the coldchain is full!"); // 需要加上失败重试机制
+                    System.out.println("interrupted!");
                 }
-            } catch (InterruptedException e) {
-                lob.degenerate(); // awful
-                System.out.println("interrupted!");
-            } 
+            } else {
+                System.out.println("should stop harvesting!");
+                break;
+            }
         }
     }
 
@@ -57,5 +62,5 @@ public class ProducerTask implements Runnable{
         lob.setTaste("delicious");
         return lob;
     }
-    
+
 }

@@ -1,7 +1,7 @@
 /**
  * @Title: Lobster.java
  * @Package: yuanjun.chen.concurrent.consumerproducer
- * @Description: TODO(用一句话描述该文件做什么)
+ * @Description: 简单pojo，无业务
  * @author: 陈元俊
  * @date: 2018年8月2日 下午2:49:26
  * @version V1.0
@@ -16,10 +16,20 @@ package yuanjun.chen.concurrent.consumerproducer;
  * @date: 2018年8月2日 下午2:49:26
  */
 public class Lobster {
+    public static volatile boolean shouldStopHarvesting = false;
     private int weight;
     private int size;
     private String taste;
     private String tag;
+    private boolean isPoisonous = false;
+
+    public boolean isPoisonous() {
+        return isPoisonous;
+    }
+
+    public void setPoisonous(boolean isPoisonous) {
+        this.isPoisonous = isPoisonous;
+    }
 
     public int getWeight() {
         return weight;
@@ -55,7 +65,8 @@ public class Lobster {
 
     @Override
     public String toString() {
-        return "Lobster [weight=" + weight + ", size=" + size + ", taste=" + taste + ", tag=" + tag + "]";
+        return "Lobster [weight=" + weight + ", size=" + size + ", taste=" + taste + ", tag=" + tag + ", isPoisonous="
+                + isPoisonous + "]";
     }
 
     /**   

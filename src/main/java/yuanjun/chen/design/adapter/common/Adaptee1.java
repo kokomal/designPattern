@@ -7,7 +7,7 @@
  * @version V1.0 
  * @Copyright: 2018 All rights reserved. 
  */
-package yuanjun.chen.adapter.common;
+package yuanjun.chen.design.adapter.common;
 
 /**   
  * @ClassName: Adaptee1   
@@ -15,8 +15,8 @@ package yuanjun.chen.adapter.common;
  * @author: 陈元俊 
  * @date: 2018年8月3日 下午4:41:42  
  */
-public class Adaptee2 {
-    public void method2() {
-        System.out.println("method2 plays!");
+public class Adaptee1 {
+    public void method1() {
+        System.out.println("method1 plays!");
     }
 }

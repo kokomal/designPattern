@@ -7,9 +7,9 @@
  * @version V1.0
  * @Copyright: 2018 All rights reserved.
  */
-package yuanjun.chen.adapter.classadapter;
+package yuanjun.chen.design.adapter.classadapter;
 
-import yuanjun.chen.adapter.common.Adaptor;
+import yuanjun.chen.design.adapter.common.Adaptor;
 
 /**
  * @ClassName: Client
