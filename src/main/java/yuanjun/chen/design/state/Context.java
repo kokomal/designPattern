@@ -27,6 +27,4 @@ public class Context {
         state.handle(this);
     }
 
-    public static void main(String[] args) {
-    }
 }

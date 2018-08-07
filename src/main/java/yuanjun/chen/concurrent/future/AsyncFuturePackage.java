@@ -65,7 +65,7 @@ public class AsyncFuturePackage <T extends PackageDTO> implements IGenericFuture
     @Override
     public synchronized T fetchPackage() throws Exception {
         while (!isReady) {
-            wait(3000); // 最多等待3s
+            wait();
         }
         return this.dto;
     }

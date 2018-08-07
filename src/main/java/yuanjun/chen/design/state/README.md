@@ -2,7 +2,7 @@
 
 ---
 
-`state pattern 状态模式`
+`state pattern 状态模式`  
 state包下
 State是一个接口，需要实现具体的状态接口handle(Context)，并扩展状态的切换逻辑  
 Context是上下文，持有一个State实例，需要在初始化的时候指定State的具体实例  
