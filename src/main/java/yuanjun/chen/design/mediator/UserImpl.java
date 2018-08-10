@@ -1,8 +1,6 @@
-
 package yuanjun.chen.design.mediator;
 
 public class UserImpl extends User {
-
     public UserImpl(ChatMediator med, String name) {
         super(med, name);
     }
@@ -17,5 +15,4 @@ public class UserImpl extends User {
     public void receive(String msg) {
         System.out.println(this.name + ": Received Message:" + msg);
     }
-
 }

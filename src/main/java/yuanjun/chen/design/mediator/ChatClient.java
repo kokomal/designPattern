@@ -1,8 +1,6 @@
-
 package yuanjun.chen.design.mediator;
 
 public class ChatClient {
-
     public static void main(String[] args) {
         ChatMediator mediator = new ChatMediatorImpl(); // 初始化Mediator
         User user1 = new UserImpl(mediator, "Pankaj"); // 每一个User都要传入mediator这个中介

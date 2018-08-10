@@ -1,12 +1,11 @@
-
 package yuanjun.chen.design.mediator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChatMediatorImpl implements ChatMediator {
-
-    private List<User> users; // 原始的中介者模式是两个具体的colleague，为了实用可以用各种容器进行划分
+    /** 原始的中介者模式是两个具体的colleague，为了实用可以用各种容器进行划分. */
+    private List<User> users;
 
     public ChatMediatorImpl() {
         this.users = new ArrayList<>();
@@ -26,5 +25,4 @@ public class ChatMediatorImpl implements ChatMediator {
             }
         }
     }
-
 }
