@@ -1,9 +1,9 @@
 package yuanjun.chen.design.visitor.wikidemo;
 
 /**
- * Car是所有部件的聚合体，同样也实现CarElement接口的accept方法 
+ * Car是所有部件的聚合体，同样也实现CarElement接口的accept方法
  */
-class Car implements CarElement {
+public class Car implements CarElement {
     CarElement[] elements; // 不能把自己也包含进去，否则死循环了
 
     public Car() {

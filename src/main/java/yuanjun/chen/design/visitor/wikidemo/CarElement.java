@@ -1,5 +1,5 @@
 package yuanjun.chen.design.visitor.wikidemo;
 
-interface CarElement {
+public interface CarElement {
     void accept(CarElementVisitor visitor);
 }

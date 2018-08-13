@@ -1,6 +1,6 @@
 package yuanjun.chen.design.visitor.wikidemo;
 
-interface CarElementVisitor {
+public interface CarElementVisitor {
     void visit(Body body);
 
     void visit(Car car);

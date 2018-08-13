@@ -1,6 +1,6 @@
 package yuanjun.chen.design.visitor.wikidemo;
 
-class Wheel implements CarElement {
+public class Wheel implements CarElement {
     private String name;
 
     public Wheel(final String name) {

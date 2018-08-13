@@ -1,6 +1,6 @@
 package yuanjun.chen.design.visitor.wikidemo;
 
-class CarElementPrintVisitor implements CarElementVisitor {
+public class CarElementPrintVisitor implements CarElementVisitor {
     public void visit(final Body body) {
         System.out.println("Visiting body");
     }
