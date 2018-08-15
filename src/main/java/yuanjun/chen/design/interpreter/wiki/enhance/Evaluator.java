@@ -1,4 +1,4 @@
-package yuanjun.chen.design.interpreter.wiki;
+package yuanjun.chen.design.interpreter.wiki.enhance;
 
 import java.util.Map;
 import java.util.Stack;
@@ -38,7 +38,7 @@ public class Evaluator implements Expression {
         syntaxTree = expressionStack.pop();
     }
 
-    public int interpret(final Map<String, Expression> context) {
+    public int interpret(Map<String, Integer> context) {
         return syntaxTree.interpret(context);
     }
 

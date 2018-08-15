@@ -4,7 +4,7 @@ public class InterpreterPatternDemo {
     /** 规则：Robert 和 John 是男性. */
     public static Expression getMaleExpression() {
         Expression robert = new TerminalExpression("Robert");
-        Expression john = new TerminalExpression("John");
+        Expression john = new TerminalExpression("John"); // 语法子规则
         return new OrExpression(robert, john);
     }
 
@@ -20,6 +20,9 @@ public class InterpreterPatternDemo {
         Expression isMarriedWoman = getMarriedWomanExpression();
 
         System.out.println("John is male? " + isMale.interpret("John"));
-        System.out.println("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));
+        System.out.println("Married John is male? " + isMale.interpret("Married John"));
+        
+        System.out.println("Julie is a married woman? " + isMarriedWoman.interpret("Married Julie"));
+        System.out.println("Married John is a MarriedWoman? " + isMarriedWoman.interpret("Married John"));
     }
 }

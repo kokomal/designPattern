@@ -1,4 +1,4 @@
-package yuanjun.chen.design.interpreter.wiki;
+package yuanjun.chen.design.interpreter.wiki.enhance;
 
 import java.util.Map;
 
@@ -15,9 +15,9 @@ public class Variable implements Expression {
         this.name = name;
     }
 
-    public int interpret(final Map<String, Expression> variables) {
+    public int interpret(final Map<String, Integer> variables) {
         if (null == variables.get(name))
             return 0; // Either return new Number(0).
-        return variables.get(name).interpret(variables); // 关键，根据变量名找到value，Number
+        return variables.get(name); // 关键，根据变量名找到value
     }
 }
