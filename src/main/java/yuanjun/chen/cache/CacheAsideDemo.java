@@ -78,7 +78,6 @@ public class CacheAsideDemo {
         }
     }
 
-    @BadPractice
     public static String cacheAsideRead(String key) {
         try {
             Thread.sleep(200); // 3.read略晚一点开始
