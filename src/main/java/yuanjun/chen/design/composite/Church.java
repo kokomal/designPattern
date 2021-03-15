@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class Church extends Christian {
 
-    private List<Christian> christians = new ArrayList<Christian>();
+    private List<Christian> christians = new ArrayList<>();
 
     public Church(String name) {
         super();

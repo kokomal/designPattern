@@ -24,12 +24,9 @@ public class LazySingletonTest {
 		int loopPerThread = 10000;
 		Thread[] threads = new Thread[nThread];
 		for (int i = 0; i < nThread; i++) {
-			threads[i] = new Thread(new Runnable() {
-				@Override
-				public void run() {
-					for (int j = 0; j < loopPerThread; j++) {
-						LazySingleton.getInstance().globallyInc();
-					}
+			threads[i] = new Thread(() -> {
+				for (int j = 0; j < loopPerThread; j++) {
+					LazySingleton.getInstance().globallyInc();
 				}
 			});
 			threads[i].start();
@@ -46,12 +43,9 @@ public class LazySingletonTest {
 		int loopPerThread = 10000;
 		Thread[] threads = new Thread[nThread];
 		for (int i = 0; i < nThread; i++) {
-			threads[i] = new Thread(new Runnable() {
-				@Override
-				public void run() {
-					for (int j = 0; j < loopPerThread; j++) {
-						LazySingleton.getInstanceByStaticSync().globallyInc();
-					}
+			threads[i] = new Thread(() -> {
+				for (int j = 0; j < loopPerThread; j++) {
+					LazySingleton.getInstanceByStaticSync().globallyInc();
 				}
 			});
 			threads[i].start();

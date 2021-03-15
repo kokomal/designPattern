@@ -33,7 +33,7 @@ public class ConsumerTask implements Runnable{
                 Lobster lob = coldChain.poll(1, TimeUnit.SECONDS);
                 if (lob != null && !lob.isPoisonous()) {
                     System.out.println("delicious loster! " + lob);
-                } else if (lob != null && lob.isPoisonous()) {
+                } else if (lob != null) {
                     System.out.println("gotta stop eating!");
                     break;
                 }

@@ -8,5 +8,5 @@ package yuanjun.chen.design.state;
  *
  */
 public interface State {
-	public abstract void handle(Context context);
+	void handle(Context context);
 }

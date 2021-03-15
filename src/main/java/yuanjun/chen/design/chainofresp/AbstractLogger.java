@@ -15,10 +15,10 @@ public abstract class AbstractLogger {
     }
 
     public void logMessage(int level, String message) {
-        if (this.level <= level) {
+        if (this.level <= level) { // 如果我自己的level足够，则操作
             write(message);
         }
-        if (nextLogger != null) {
+        if (nextLogger != null) { // 如果有下一个logger，则传递logMessage这个行为
             nextLogger.logMessage(level, message);
         }
     }

@@ -54,7 +54,7 @@ public class DynaMediaProxyHandler<T extends Media> implements InvocationHandler
 
     public static void main(String[] args) {
         RealBigImage real = new RealBigImage("Playboy");
-        DynaMediaProxyHandler<Image> imagehandler = new DynaMediaProxyHandler<Image>(real);
+        DynaMediaProxyHandler<Image> imagehandler = new DynaMediaProxyHandler<>(real);
         Image imgProxy = imagehandler.fetchDynamicImage();
         imgProxy.showImage();
         imgProxy.showImage(); // 第二次不需要再初始化
@@ -62,7 +62,7 @@ public class DynaMediaProxyHandler<T extends Media> implements InvocationHandler
         imgProxy2.showImage(); // 这次也不需要初始化
         imgProxy2.showImage(); // 更加不需要再初始化
         RealBigVideo rv = new RealBigVideo("the Godfather I");
-        DynaMediaProxyHandler<Video> videohandler = new DynaMediaProxyHandler<Video>(rv);
+        DynaMediaProxyHandler<Video> videohandler = new DynaMediaProxyHandler<>(rv);
         Video videoProxy = videohandler.fetchDynamicVideo();
         videoProxy.playVideo();
         videoProxy.playVideo();
@@ -73,7 +73,7 @@ public class DynaMediaProxyHandler<T extends Media> implements InvocationHandler
             System.out.println(e);
         }
         RealBigVideo rv2 = new RealBigVideo("the Godfather II");
-        DynaMediaProxyHandler<Video> videohandler2 = new DynaMediaProxyHandler<Video>(rv2);
+        DynaMediaProxyHandler<Video> videohandler2 = new DynaMediaProxyHandler<>(rv2);
         Video videoInstance = videohandler2.getInstance(Video.class);
         videoInstance.playVideo();
         videoInstance.playVideo();

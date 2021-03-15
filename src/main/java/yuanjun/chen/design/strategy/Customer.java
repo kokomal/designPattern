@@ -11,7 +11,7 @@ class Customer {
     private BillingStrategy strategy;
 
     public Customer(final BillingStrategy strategy) {
-        this.drinks = new ArrayList<Double>();
+        this.drinks = new ArrayList<>();
         this.strategy = strategy;
     }
 
@@ -37,5 +37,4 @@ class Customer {
         this.strategy = strategy;
     }
 
-    public static void main(String[] args) {}
 }

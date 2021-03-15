@@ -18,7 +18,7 @@ import yuanjun.chen.design.observer.jdk.MyObserver;
 
 /**
  * @ClassName: ObserverPatternTest
- * @Description: TODO(这里用一句话描述这个类的作用)
+ * @Description: 观察者模式demo，模拟央行控制全局利率，商业银行跟随利率变化的场景
  * @author: 陈元俊
  * @date: 2018年8月13日 下午12:56:53
  */
@@ -27,7 +27,7 @@ public class ObserverPatternTest {
     @Test
     public void wikiObTest() {
         EventSource eventSource = new EventSource();
-        Observer o1 = new MyObserver();
+        Observer o1 = new MyObserver(); // 自己实现的Ob
         Observer o2 = new MyObserver();
         Observer o3 = new MyObserver();
         eventSource.addObserver(o1);

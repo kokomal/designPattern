@@ -61,6 +61,4 @@ public class CentralBank extends Observable{
         deleteObserver(bank);
     }
     
-    public static void main(String[] args) {
-    }
 }

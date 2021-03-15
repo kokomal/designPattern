@@ -24,26 +24,23 @@ import yuanjun.chen.design.simplefactory.products.ToyotaCar;
  */
 public class CarStaticFactory {
     public enum CarType {
-        BMW, BENZ, AUDI, TESLA, TOYOTA;
+        BMW, BENZ, AUDI, TESLA, TOYOTA
     }
 
     public static Car generateOneCar(CarType type) {
         switch (type) {
             case BMW:
                 return new BmwCar();
-            case BENZ:
-                return new BenzCar();
             case AUDI:
                 return new AudiCar();
             case TESLA:
                 return new TeslaCar();
             case TOYOTA:
                 return new ToyotaCar();
+            case BENZ:
             default:
                 return new BenzCar();
         }
     }
-    
-    public static void main(String[] args) {
-    }
+
 }

@@ -1,7 +1,7 @@
 package yuanjun.chen.design.iterator;
 
 public interface Iterator {
-    public boolean hasNext();
+    boolean hasNext();
 
-    public Object next();
+    Object next();
 }

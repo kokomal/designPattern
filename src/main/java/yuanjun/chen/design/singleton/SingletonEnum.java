@@ -25,16 +25,11 @@ public enum SingletonEnum {
     private AtomicInteger counts;
     private Integer counts2; // 非线程安全成员
 
-    private SingletonEnum(int counts, int counts2) {
+    SingletonEnum(int counts, int counts2) {
         this.counts = new AtomicInteger(counts);
         this.counts2 = counts2;
     }
 
-    @Deprecated
-    public static void trigger() { // 用处不大
-        // dummy!
-    }
-    
     public void reset() {
         logger.info("reset should be after init!");
         this.counts.set(0);

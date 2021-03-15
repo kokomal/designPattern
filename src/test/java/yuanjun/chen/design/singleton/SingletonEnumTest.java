@@ -33,7 +33,7 @@ public class SingletonEnumTest {
         unsafelyTestSingletonEnum();
     }
     
-    public void testInit() throws Exception {
+    public void testInit() {
         logger.info("begin load class " + SingletonEnum.class); // 此时没有初始化
         logger.info("i think the init has not been done"); 
         SingletonEnum zz = SingletonEnum.INSTANCE; // 隐式调用，属于静态成员访问，开始初始化 
@@ -47,12 +47,9 @@ public class SingletonEnumTest {
         int loopPerThread = 10000;
         Thread[] threads = new Thread[nThread];
         for (int i = 0; i < nThread; i++) {
-            threads[i] = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int j = 0; j < loopPerThread; j++) {
-                        SingletonEnum.INSTANCE.globallyInc();
-                    }
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < loopPerThread; j++) {
+                    SingletonEnum.INSTANCE.globallyInc();
                 }
             });
             threads[i].start();
@@ -70,12 +67,9 @@ public class SingletonEnumTest {
         int loopPerThread = 10000;
         Thread[] threads = new Thread[nThread];
         for (int i = 0; i < nThread; i++) {
-            threads[i] = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int j = 0; j < loopPerThread; j++) {
-                        SingletonEnum.INSTANCE.safelyGloballyInc();
-                    }
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < loopPerThread; j++) {
+                    SingletonEnum.INSTANCE.safelyGloballyInc();
                 }
             });
             threads[i].start();
@@ -92,12 +86,9 @@ public class SingletonEnumTest {
         int loopPerThread = 10000;
         Thread[] threads = new Thread[nThread];
         for (int i = 0; i < nThread; i++) {
-            threads[i] = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int j = 0; j < loopPerThread; j++) {
-                        SingletonEnum.INSTANCE.unsafelyGloballyInc();
-                    }
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < loopPerThread; j++) {
+                    SingletonEnum.INSTANCE.unsafelyGloballyInc();
                 }
             });
             threads[i].start();

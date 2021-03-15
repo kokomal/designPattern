@@ -1,6 +1,7 @@
 package yuanjun.chen.design.chainofresp;
 
 public class ChainPatternDemo {
+    // 这个方法只需要绑定优先级和顺序即可
     private static AbstractLogger getChainOfLoggers() {
         AbstractLogger errorLogger = new ErrorLogger(AbstractLogger.ERROR);
         AbstractLogger fileLogger = new FileLogger(AbstractLogger.DEBUG);
@@ -9,7 +10,7 @@ public class ChainPatternDemo {
         errorLogger.setNextLogger(fileLogger);
         fileLogger.setNextLogger(consoleLogger);
 
-        return errorLogger;
+        return errorLogger; // 暴露最高级别的入口
     }
 
     public static void main(String[] args) {

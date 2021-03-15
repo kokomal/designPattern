@@ -23,8 +23,8 @@ import yuanjun.chen.common.BadPractice;
  */
 public class CacheAsideDemo {
     private static final Logger logger = LogManager.getLogger(CacheAsideDemo.class);
-    public static Map<String, String> cache = new HashMap<String, String>();
-    public static Map<String, String> db = new HashMap<String, String>(); // db always have val
+    public static Map<String, String> cache = new HashMap<>();
+    public static Map<String, String> db = new HashMap<>(); // db always have val
 
     /**
      * 
@@ -96,5 +96,4 @@ public class CacheAsideDemo {
         }
     }
 
-    public static void main(String[] args) throws Exception {}
 }

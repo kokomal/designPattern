@@ -29,7 +29,7 @@ public class HungrySingletonTest {
         exec();
     }
 
-    public void tryLoadClass001() throws Exception {
+    public void tryLoadClass001() {
         System.out.println("---begin1---");
         // 刺激类初始化,但是是不可能在此初始化静态成员的！
         synchronized (HungrySingleton.class) {
@@ -45,13 +45,13 @@ public class HungrySingletonTest {
     }
 
     @BadPractice
-    public void tryLoadClass003() throws Exception {
+    public void tryLoadClass003() {
         System.out.println("---begin3---");
         // 尝试声明变量，而不访问其静态成员或者方法，必然不行
         HungrySingleton h = null;
     }
 
-    public void tryLoadClass004() throws Exception {
+    public void tryLoadClass004() {
         System.out.println("---begin4---");
         // 到此才真正进行加载！
         HungrySingleton.trigger(); // 显式调用某一初始化方法，可以触发静态成员的初始化
@@ -67,12 +67,9 @@ public class HungrySingletonTest {
         int loopPerThread = 10000;
         Thread[] threads = new Thread[nThread];
         for (int i = 0; i < nThread; i++) {
-            threads[i] = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int j = 0; j < loopPerThread; j++) {
-                        HungrySingleton.getInstance().globallyInc();
-                    }
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < loopPerThread; j++) {
+                    HungrySingleton.getInstance().globallyInc();
                 }
             });
             threads[i].start();

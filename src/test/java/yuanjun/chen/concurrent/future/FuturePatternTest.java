@@ -56,20 +56,17 @@ public class FuturePatternTest {
             throws Exception {
         Thread[] tl = new Thread[10];
         for (int i = 0; i < 10; i++) { // 100个线程在等待取货
-            tl[i] = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        T dto = futureData.fetchPackage();
-                        if (dto != null) {
-                            logger.info(Thread.currentThread().getName() + " get the parcel " + dto);
-                        } else {
-                            logger.warn(Thread.currentThread().getName() + " fail to fetch the parcel.");
-                        }
-                    } catch (Exception e) {
-                        logger.error("error " + e);
-                        return;
+            tl[i] = new Thread(() -> {
+                try {
+                    T dto = futureData.fetchPackage();
+                    if (dto != null) {
+                        logger.info(Thread.currentThread().getName() + " get the parcel " + dto);
+                    } else {
+                        logger.warn(Thread.currentThread().getName() + " fail to fetch the parcel.");
                     }
+                } catch (Exception e) {
+                    logger.error("error " + e);
+                    return;
                 }
             });
             tl[i].start();

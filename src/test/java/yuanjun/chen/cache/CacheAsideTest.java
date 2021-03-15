@@ -27,19 +27,15 @@ public class CacheAsideTest {
     public void badCacheRWTest() throws Exception {
         CacheAsideDemo.db.put(TOP_HANDSOME, "潘安"); // 初始化
         CacheAsideDemo.cache.put(TOP_HANDSOME, "潘安"); // 初始化
-        Thread t1 = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    CacheAsideDemo.badWrite(TOP_HANDSOME, "胡歌");
-                } catch (Exception e) {
-                }
+        Thread t1 = new Thread(() -> {
+            try {
+                CacheAsideDemo.badWrite(TOP_HANDSOME, "胡歌");
+            } catch (Exception e) {
             }
         });
-        Thread t2 = new Thread(new Runnable() {
-            public void run() {
-                String first = CacheAsideDemo.badRead(TOP_HANDSOME);
-                logger.info("BadRead=== FIRST GET " + first);
-            }
+        Thread t2 = new Thread(() -> {
+            String first = CacheAsideDemo.badRead(TOP_HANDSOME);
+            logger.info("BadRead=== FIRST GET " + first);
         });
         t1.start();
         t2.start();
@@ -55,19 +51,15 @@ public class CacheAsideTest {
     public void cacheAsideRWTest() throws Exception {
         CacheAsideDemo.db.put(TOP_HANDSOME, "潘安"); // 初始化
         CacheAsideDemo.cache.put(TOP_HANDSOME, "潘安"); // 初始化
-        Thread t1 = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    CacheAsideDemo.cacheAsideWrite(TOP_HANDSOME, "胡歌");
-                } catch (Exception e) {
-                }
+        Thread t1 = new Thread(() -> {
+            try {
+                CacheAsideDemo.cacheAsideWrite(TOP_HANDSOME, "胡歌");
+            } catch (Exception e) {
             }
         });
-        Thread t2 = new Thread(new Runnable() {
-            public void run() {
-                String first = CacheAsideDemo.cacheAsideRead(TOP_HANDSOME);
-                logger.info("CacheAsideRead=== FIRST GET " + first);
-            }
+        Thread t2 = new Thread(() -> {
+            String first = CacheAsideDemo.cacheAsideRead(TOP_HANDSOME);
+            logger.info("CacheAsideRead=== FIRST GET " + first);
         });
         t1.start();
         t2.start();

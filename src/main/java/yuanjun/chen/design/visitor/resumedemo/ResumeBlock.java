@@ -11,10 +11,10 @@ package yuanjun.chen.design.visitor.resumedemo;
 
 /**   
  * @ClassName: ResumeBlock   
- * @Description: TODO(这里用一句话描述这个类的作用)   
+ * @Description:
  * @author: 陈元俊 
  * @date: 2018年8月13日 上午9:03:49  
  */
 public interface ResumeBlock {
-    public void accept(Viewer viewer);
+    void accept(Viewer viewer);
 }

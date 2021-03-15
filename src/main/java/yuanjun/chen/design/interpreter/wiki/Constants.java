@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**   
  * @ClassName: Constants   
- * @Description: TODO(这里用一句话描述这个类的作用)   
+ * @Description:
  * @author: 陈元俊 
  * @date: 2018年8月15日 上午9:01:17  
  */

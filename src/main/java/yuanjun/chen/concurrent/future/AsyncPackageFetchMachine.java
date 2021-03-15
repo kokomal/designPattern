@@ -20,14 +20,11 @@ import yuanjun.chen.concurrent.future.dto.PackageDTO;
 public class AsyncPackageFetchMachine {
     
     public static <T extends PackageDTO> IGenericFuturePackage<T> fetchAsyncData(String name, Double price, Class<T> clazz) {
-        AsyncFuturePackage<T> future = new AsyncFuturePackage<T>();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    future.sendInPackage(name, price, clazz); // 另起线程去生成数据
-                } catch (Exception e) {
-                }
+        AsyncFuturePackage<T> future = new AsyncFuturePackage<>();
+        new Thread(() -> {
+            try {
+                future.sendInPackage(name, price, clazz); // 另起线程去生成数据
+            } catch (Exception e) {
             }
         }).start();
         return future; // 无阻塞返回壳子

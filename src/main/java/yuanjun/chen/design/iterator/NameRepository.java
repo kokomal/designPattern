@@ -1,7 +1,7 @@
 package yuanjun.chen.design.iterator;
 
 public class NameRepository implements Container {
-    private String names[];
+    private String[] names;
 
     public NameRepository(String[] names) {
         this.names = names;

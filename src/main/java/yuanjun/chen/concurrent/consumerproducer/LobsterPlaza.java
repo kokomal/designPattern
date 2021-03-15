@@ -35,7 +35,7 @@ public class LobsterPlaza {
         }
     }
 
-    public static void finish() throws Exception {
+    public static void finish() {
         es.shutdown();
         while (true) {
             if (es.isTerminated()) {

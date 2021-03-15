@@ -53,13 +53,8 @@ public class CommercialBank implements Observer{
         }
         CommercialBank other = (CommercialBank) obj;
         if (bankName == null) {
-            if (other.bankName != null) {
-                return false;
-            }
-        } else if (!bankName.equals(other.bankName)) {
-            return false;
-        }
-        return true;
+            return other.bankName == null;
+        } else return bankName.equals(other.bankName);
     }
 
     @Override

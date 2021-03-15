@@ -7,7 +7,7 @@ package yuanjun.chen.design.flyweight.shape;
  * @date: 2018年8月15日 下午1:42:48  
  */
 public class FlyweightPatternDemo {
-    private static final String colors[] = {"Red", "Green", "Blue", "White", "Black"};
+    private static final String[] colors = {"Red", "Green", "Blue", "White", "Black"};
 
     public static void main(String[] args) {
         for (int i = 0; i < 20; ++i) {
